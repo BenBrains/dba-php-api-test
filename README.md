@@ -1,66 +1,71 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# dba-php-api-test
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> Okay, so.., in the dba (database administration) class, we are learning how to create a MariaDB database. Here is the
+> thing though, I am already familiar with MySQL, which is really similar to MariaDB. I hate to say it, but this class
+> is, becuase of this, a bit _boring_... 😅
+>
+> Something that is new for me though, is Laravel. I've been wanting to try Laravel for quite a while now. I decided to
+> give myself a challenge and try/learn to create a Laravel API that connects to the MariaDB database that I created in
+> class. 🤔
+>
+> This is the result of my decision. For now, you can only read from the database. I'm planning on adding the
+> possibility to write to the database later on. ✌️
 
-## About Laravel
+> [!NOTE]
+> I'm new to Laravel, so I'm not sure if I'm doing everything right. I'm trying my best though. 🫡
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+> [!NOTE]
+> The database and endpoints are in Dutch. Yes I hate it, but this way, it's more in line with the class. 🫠
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Used stuff
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Laravel
+- MariaDB
+- PHP
 
-## Learning Laravel
+## How to use _(probably)_
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+> [!CAUTION]
+> I have not tested this using the seeder and migration files. I think it should work, but I'm not sure. I'll test it
+> later, trust me.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. Clone the repository
+2. Run `composer install` _(Copilot suggested this, so I'm doing it. It knows more than me, so...)_
+3. Clone `.env.example` and rename it to `.env`. Then, fill in the database information in the `.env` file.
+    ```env
+    DB_CONNECTION=mysql
+    DB_HOST=
+    DB_PORT=
+    DB_DATABASE=
+    DB_USERNAME=
+    DB_PASSWORD=
+    ```
+4. Run `php artisan migrate` to create the database tables
+5. ~~Run `php artisan db:seed` to seed the database~~ _SEEDING DOES NOT WORK YET_
+6. Run `php artisan serve`
+7. 🎉
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Endpoints
 
-## Laravel Sponsors
+- `GET /api` - Kinda like a health endpoint
+- `GET /api/klanten` - Get all customers
+- `GET /api/klanten/{id}` - Get a customer by id
+- `GET /api/fabrieken` - Get all factories
+- `GET /api/fabrieken/{id}` - Get a factory by id
+- `GET /api/machines` - Get all machines
+- `GET /api/machines/{id}` - Get a machine by id
+- `GET /api/orders` - Get all orders
+- `GET /api/orders/{id}` - Get an order by id
+- `GET /api/plannings` - Get all plannings _(I have no clue what it is, should probably ask my teacher)_
+- `GET /api/plannings/{id}` - Get a planning by id
+- `GET /api/producten` - Get all products
+- `GET /api/producten/{id}` - Get a product by id
+- `GET /api/productielijnen` - Get all production lines
+- `GET /api/productielijnen/{id}` - Get a production line by id
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Support
 
-### Premium Partners
+For technical issues: Contact me on [Discord](https://discord.com/users/462914535351779328), or, if you're in my class,
+just yell my name.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+For personal issues: Take a deep breath, it's going to be okay.
